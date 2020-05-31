@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
     <br />
-    <h1>COVID-19 India graph.</h1>
+    <h1>COVID-19 😷 India graph.</h1>
     <p>
       <a :href="apiUrl" target="_blank" rel="noopener noreferrer"
         >JSON Data 🔗</a
@@ -12,6 +12,17 @@
         >COVID-19 India 😷 API</a
       >
     </p>
+    <span>
+      <a :href="github" target="_blank" rel="noopener noreferrer"
+        >Fork me on GitHub</a
+      >
+    </span>
+    •
+    <span>
+      <a :href="bitbucket" target="_blank" rel="noopener noreferrer"
+        >Fork me on BitBucket</a
+      >
+    </span>
     <div class="row mt-5" v-if="dailyConfirmed.length > 0">
       <div class="col">
         <h2>Daily confirmed</h2>
@@ -101,6 +112,8 @@ export default {
       tutorial: "https://youtu.be/cUSfL6MBmlY",
       api: "https://api.covid19india.org",
       apiUrl: "https://api.covid19india.org/data.json",
+      github: "https://github.com/kashifulhaque/covid-19-graph",
+      bitbucket: "https://bitbucket.org/kashifulhaque/covid-19-graph",
       dailyConfirmed: [],
       totalConfirmed: [],
       dailyRecovered: [],
