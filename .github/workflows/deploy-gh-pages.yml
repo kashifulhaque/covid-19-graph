@@ -14,7 +14,7 @@ jobs:
             persist-credentials: false
 
         - name: Install & Build Vue.js 🛠
-          run:
+          run: |
             npm install
             npm run build
 
