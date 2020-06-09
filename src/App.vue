@@ -1,10 +1,10 @@
 <template>
   <div id="app" class="container">
     <br />
-    <h1>COVID-19 😷 India graph.</h1>
+    <h1>COVID-19 😷 India graph. [Data from March 1, 2020]</h1>
     <p>
       <a :href="apiUrl" target="_blank" rel="noopener noreferrer"
-        >JSON Data 🔗</a
+        >JSON Data 🔗 (Complete data)</a
       >
     </p>
     <p>
