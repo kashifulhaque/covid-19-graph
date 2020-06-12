@@ -3,6 +3,11 @@
 > A web app which displays daily and total COVID-19 stats of India.
 > NOTE: This shows the data from March 1 till the current day.
 
+## Screenshots
+
+![Main](src/assets/main.png)
+![Recovered](src/assets/recovered.png)
+
 ## How do I get started?
 
 1. Clone/Download this repo. To clone, type in `git clone https://github.com/kashifulhaque/covid-19-graph.git` into the terminal. If you're on Windows, make sure that [git](https://git-scm.com) is installed.
