@@ -5,8 +5,8 @@
 
 ## Screenshots
 
-![Main](src/assets/main.png)
-![Recovered](src/assets/recovered.png)
+![Main](https://github.com/kashifulhaque/covid-19-graph/src/assets/main.png?raw=true)
+![Recovered](https://github.com/kashifulhaque/covid-19-graph/src/assets/recovered.png?raw=true)
 
 ## How do I get started?
 
