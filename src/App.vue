@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <br />
     <h1>COVID-19 😷 India graph. [Data from March 1, 2020]</h1>
     <p>
