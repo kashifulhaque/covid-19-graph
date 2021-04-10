@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="cont">
     <br />
-    <h1>COVID-19 😷 India graph. [Data from March 1, 2020]</h1>
+    <h1>COVID-19 😷 India graph. [Data from May 1, 2020]</h1>
     <p>
       <a :href="apiUrl" target="_blank" rel="noopener noreferrer"
         >JSON Data 🔗 (Complete data)</a
@@ -131,8 +131,9 @@ export default {
     const historicData = data.cases_time_series;
 
     let i = 0;
+    const skipDays = 91;
     historicData.forEach((d) => {
-      if (i > 30) {
+      if (i > skipDays) {
         const {
           dailyconfirmed,
           totalconfirmed,
