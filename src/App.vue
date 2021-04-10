@@ -1,35 +1,43 @@
 <template>
   <div id="app" class="cont">
     <br />
-    <h1>COVID-19 😷 India graph. [Data from May 1, 2020]</h1>
+    <h1>COVID-19 India graph</h1>
+    <h2>
+      Vaccinated:
+      {{
+        this.vaccinated == 0
+          ? "Loading ..."
+          : Number(this.vaccinated.toFixed(1)).toLocaleString()
+      }}
+    </h2>
     <p>
-      <a :href="apiUrl" target="_blank" rel="noopener noreferrer"
+      <a :href="apiUrl" target="_blank" rel="noopener noreferrer preconnect"
         >JSON Data 🔗 (Complete data)</a
       >
     </p>
     <p>
-      <a :href="api" target="_blank" rel="noopener noreferrer"
-        >COVID-19 India 😷 API</a
+      <a :href="api" target="_blank" rel="noopener noreferrer preconnect"
+        >COVID-19 India API</a
       >
     </p>
     <span>
-      <a :href="github" target="_blank" rel="noopener noreferrer"
+      <a :href="github" target="_blank" rel="noopener noreferrer preconnect"
         >Fork me on GitHub</a
       >
     </span>
     •
     <span>
-      <a :href="bitbucket" target="_blank" rel="noopener noreferrer"
+      <a :href="bitbucket" target="_blank" rel="noopener noreferrer preconnect"
         >Fork me on BitBucket</a
       >
     </span>
     <div class="row mt-5" v-if="dailyConfirmed.length > 0">
       <div class="col">
-        <h2>Daily confirmed</h2>
+        <h2>Cases per day</h2>
         <line-chart
           :chartData="dailyConfirmed"
           :options="chartOptions"
-          label="Daily Confirmed"
+          label="Confirmed cases today"
           bgcolor="#303960"
         ></line-chart>
       </div>
@@ -37,11 +45,11 @@
     <br />
     <div class="row mt-5" v-if="totalConfirmed.length > 0">
       <div class="col">
-        <h2>Total confirmed</h2>
+        <h2>Total number of cases till now</h2>
         <line-chart
           :chartData="totalConfirmed"
           :options="chartOptions"
-          label="Total Confirmed"
+          label="Number of confirmed cases till now"
           bgcolor="#303960"
         ></line-chart>
       </div>
@@ -53,7 +61,7 @@
         <line-chart
           :chartData="dailyRecovered"
           :options="chartOptions"
-          label="# of people recovered everyday"
+          label="Number of people recovered"
           bgcolor="#A8DF65"
         ></line-chart>
       </div>
@@ -65,7 +73,7 @@
         <line-chart
           :chartData="totalRecovered"
           :options="chartOptions"
-          label="# of people recovered till now"
+          label="Number of people recovered till now"
           bgcolor="#A8DF65"
         ></line-chart>
       </div>
@@ -73,11 +81,11 @@
     <br />
     <div class="row mt-5" v-if="dailyDeceased.length > 0">
       <div class="col">
-        <h2>Deaths per day due to COVID-19</h2>
+        <h2>Deaths per day</h2>
         <line-chart
           :chartData="dailyDeceased"
           :options="chartOptions"
-          label="# of people dying everyday"
+          label="Number of deaths per day"
           bgcolor="#D92027"
         ></line-chart>
       </div>
@@ -85,11 +93,11 @@
     <br />
     <div class="row mt-5" v-if="totalDeceased.length > 0">
       <div class="col">
-        <h2>Total # of deaths so far</h2>
+        <h2>Total number of deaths so far</h2>
         <line-chart
           :chartData="totalDeceased"
           :options="chartOptions"
-          label="# of people dead till now"
+          label="Number of deaths so far"
           bgcolor="#D92027"
         ></line-chart>
       </div>
@@ -112,8 +120,10 @@ export default {
       tutorial: "https://youtu.be/cUSfL6MBmlY",
       api: "https://api.covid19india.org",
       apiUrl: "https://api.covid19india.org/data.json",
+      apiV4: "https://api.covid19india.org/v4/data.json",
       github: "https://github.com/kashifulhaque/covid-19-graph",
       bitbucket: "https://bitbucket.org/kashifulhaque/covid-19-graph",
+      vaccinated: 0,
       dailyConfirmed: [],
       totalConfirmed: [],
       dailyRecovered: [],
@@ -128,6 +138,8 @@ export default {
   },
   async created() {
     const { data } = await axios.get(this.apiUrl);
+    const dataV4 = await axios.get(this.apiV4);
+    this.vaccinated = dataV4.data.TT.total.vaccinated;
     const historicData = data.cases_time_series;
 
     let i = 0;
