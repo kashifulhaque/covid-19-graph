@@ -33,7 +33,12 @@
     </span>
     <div class="row mt-5" v-if="dailyConfirmed.length > 0">
       <div class="col">
-        <h2>Cases per day</h2>
+        <h2>
+          Cases per day ({{
+            this.dailyConfirmed[this.dailyConfirmed.length - 1].data
+          }}
+          cases today)
+        </h2>
         <line-chart
           :chartData="dailyConfirmed"
           :options="chartOptions"
@@ -45,7 +50,12 @@
     <br />
     <div class="row mt-5" v-if="totalConfirmed.length > 0">
       <div class="col">
-        <h2>Total number of cases till now</h2>
+        <h2>
+          Total number of cases till now ({{
+            this.totalConfirmed[this.totalConfirmed.length - 1].data
+          }}
+          cases in total)
+        </h2>
         <line-chart
           :chartData="totalConfirmed"
           :options="chartOptions"
@@ -57,7 +67,12 @@
     <br />
     <div class="row mt-5" v-if="dailyRecovered.length > 0">
       <div class="col">
-        <h2>Recoveries per day</h2>
+        <h2>
+          Recoveries per day ({{
+            this.dailyRecovered[this.dailyRecovered.length - 1].data
+          }}
+          recovered today)
+        </h2>
         <line-chart
           :chartData="dailyRecovered"
           :options="chartOptions"
@@ -69,7 +84,12 @@
     <br />
     <div class="row mt-5" v-if="totalRecovered.length > 0">
       <div class="col">
-        <h2>Total recoveries so far</h2>
+        <h2>
+          Total recoveries so far ({{
+            this.totalRecovered[this.totalRecovered.length - 1].data
+          }}
+          recovered so far)
+        </h2>
         <line-chart
           :chartData="totalRecovered"
           :options="chartOptions"
@@ -81,7 +101,12 @@
     <br />
     <div class="row mt-5" v-if="dailyDeceased.length > 0">
       <div class="col">
-        <h2>Deaths per day</h2>
+        <h2>
+          Deaths per day ({{
+            this.dailyDeceased[this.dailyDeceased.length - 1].data
+          }}
+          deaths today)
+        </h2>
         <line-chart
           :chartData="dailyDeceased"
           :options="chartOptions"
@@ -93,7 +118,12 @@
     <br />
     <div class="row mt-5" v-if="totalDeceased.length > 0">
       <div class="col">
-        <h2>Total number of deaths so far</h2>
+        <h2>
+          Total number of deaths so far ({{
+            this.totalDeceased[this.totalDeceased.length - 1].data
+          }}
+          deaths so far)
+        </h2>
         <line-chart
           :chartData="totalDeceased"
           :options="chartOptions"
