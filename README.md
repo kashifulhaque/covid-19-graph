@@ -1,7 +1,7 @@
 # [COVID-19 India graph](https://covid19.ifkash.me)
 
 > A web app which displays daily and total COVID-19 stats of India.
-> NOTE: This shows the data from March 1 till the current day.
+> NOTE: This shows the data from 1st May, 2020 till the current day.
 
 ## Screenshots
 
