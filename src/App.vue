@@ -3,14 +3,6 @@
     <br />
     <h1 class="text-center">COVID-19 India graph</h1>
     <p class="text-center">Graph starts from May 1st, 2020</p>
-    <h4 class="text-center">
-      {{
-        this.vaccinated == 0
-          ? "Loading ..."
-          : Number(this.vaccinated.toFixed(1)).toLocaleString() +
-            " doses of vaccine currently administered 💉"
-      }}
-    </h4>
     <div class="row mt-5" v-if="dailyConfirmed.length > 0">
       <div class="col">
         <h2>
